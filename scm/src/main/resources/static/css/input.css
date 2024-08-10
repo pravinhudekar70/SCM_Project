@@ -1,0 +1,6 @@
+/* scm\src\main\resources\static\css\input.css */
+/* npx tailwindcss -i  scm\src\main\resources\static\css\input.css  -o  scm\src\main\resources\static\css\output.css --watch */
+/* npx tailwindcss -i  scm\src\main\resources\static\css\input.css  -o  scm\src\main\resources\static\css\output.css --watch */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
