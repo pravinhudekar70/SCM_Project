@@ -1,8 +1,34 @@
-<div class="parent-fragment" th:fragment="parent(x,y)">
-    <h1>this is parent fragment</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, corporis est corrupti blanditiis tempora
-        iste asperiores quidem cumque earum nihil nesciunt recusandae numquam! Provident asperiores sapiente animi
-        assumenda praesentium id?</p>
-        <h3>value of x= <span th:text ="${x}"></span></h3>
-        <h3>value of y= <span th:text ="${y}"></span></h3>
-</div>
+<!DOCTYPE html>
+<html class="light" lang="en" th:fragment="parent(content,title,script,link)" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace="${title}"> Base page</title>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" th:href="@{/css/output.css}" />
+   <link rel="stylesheet" data-th-href="@{'/css/style.css'}">
+    <th:block th:replace="${link}"> </th:block>
+
+</head>
+
+<body class=" dark:bg-gray-800  dark:text-white " >
+    <!-- common header -->
+    <div th:replace="navbar :: navbar"></div>
+
+    <!-- main content -->
+    <div class="p-4 ">
+        <section th:replace="${content}">
+        </section>
+    </div>
+
+
+    <!-- flowbite script -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <script th:src ="@{'/js/script.js'}"></script>
+    <th:block th:replace="${script}"> </th:block>
+</body>
+
+</html>
